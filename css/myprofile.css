@@ -1,154 +1,207 @@
-* {
-    font-family: fantasy;
+/* Reset y tipografía base */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #22d3ee;
+  --accent-2: #60a5fa;
+  --border: #1f2937;
 }
 
-html {
-    border: 2px solid rgb(0, 16, 2);
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, var(--bg), #060913);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.6;
 }
 
-body {
-    border: 2px dashed rgb(0, 16, 2);
-    /* width: 100%; */
+/* Accesibilidad: enlace para saltar al contenido */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #fff;
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+  z-index: 1000;
 }
 
-header {
-    border: 2px dashed rgb(0, 16, 2);
-    text-align: center;
-    font-size: large;
-    background-color: bisque;
+/* Header y navegación principal */
+.site-header {
+  text-align: center;
+  padding: 24px 16px 8px;
 }
 
-/* . is class selector, it allows us to select all tags with the same 
-class value */
-.AM {
-    border: 3px dashed rgb(0, 16, 2);
-    border-radius: 50%;
-    width: 20%;
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto 12px;
 }
 
-.sobre-mi-columna-1 {
-    width: 40%;
-    /* make all the elements inside a container float to the left forming 
-    a line */
-    float: left;
-    height: 600px;
-    border: 8px dashed black;
-    border-radius: 3%;
-    /* create space between elements */
-    margin: 10px;
-    /* create space between an element and its border */
-    padding: 15px;
+.site-header h1 {
+  margin: 8px 0 0;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
 }
 
-/* > is used to select children of a parent element, in this 
-case, the parent element is "section" while the children is all 
-its "h1" child */
-section>h1 {
-    background-color: beige;
-    text-align: center;
+.subtitle {
+  margin: 4px 0 16px;
+  color: var(--muted);
 }
 
-/* # + id of an element to select a unique element
-# is css id selector */
-#sobre-mi-21 {
-    background-color: rgb(112, 112, 83);
+.site-nav,
+.footer-right {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-#about-me-column-22 {
-    background: url(../HTML/awqaa.jpg);
-    background-size: cover;
-    background-position: center;
+.site-nav a,
+.footer-right a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  transition: border-color .2s, background .2s, color .2s;
+}
+.site-nav a:hover,
+.footer-right a:hover {
+  border-color: var(--accent);
+  color: #e6feff;
+  background: rgba(34, 211, 238, 0.08);
 }
 
-section{
-    /* Remove the effects caused by "float" from other elements */
-    clear: both;
+/* Sección Sobre mí */
+.sobre-mi {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 16px 0 24px;
+}
+.sobre-mi .col {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+figure {
+  margin: 0;
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+figure figcaption {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 6px;
 }
 
-.mis-projectos-column-4{
-    width: 22%;
-    float: left;
-    background-color: rgb(112, 223, 223);
-    padding: 10px;
-    border: 3px solid black;
-    border-radius: 20px;
-    height: 200px;
-    text-align: center;
-    margin: 2px;
+/* Mis proyectos - tarjetas en grid responsive */
+#mis-proyectos {
+  margin-top: 8px;
+}
+.grid-cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18), inset 0 -1px 0 rgba(255,255,255,0.04);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .2s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-2);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.24), 0 0 0 1px rgba(96,165,250,0.24) inset;
+}
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #eaf2ff;
 }
 
-.square4{
-    background: url(../html/ooo.jpg);
-    background-size: cover;
-    background-position: center;
-    opacity: 0.4;
+/* Tabla accesible y fluida */
+.table-wrapper {
+  overflow-x: auto;
+}
+.table-1 {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.table-1 caption {
+  caption-side: top;
+  text-align: left;
+  padding: 12px 12px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.table-1 th,
+.table-1 td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.table-1 thead th {
+  background: rgba(96,165,250,0.08);
+}
+.table-1 tbody tr:hover {
+  background: rgba(255,255,255,0.03);
 }
 
-.square8{
-    background: url(../html/P009-300x300.jpg);
-    background-size: cover;
-    background-position: center;
-    opacity: 0.4;
+/* Footer */
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 16px 32px;
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  border: 1px solid var(--border);
 }
 
-footer{
-    clear: both;
-}
-
-.footer-icon{
-    width: 30px;
-    height: 30px;
-}
-
-section{
-    border: 2px solid rgb(210, 199, 155);
-    margin: 3px;
-}
-
-.table-1{
-    width: 100%;
-    /* padding-left: 100px; */
-    padding-top: 50px;
-    padding-bottom: 40px;
-    
-    /* make the children borders collapse */
-    border-collapse: collapse;
-}
-
-.table-1 tr, .table-1 td{
-    padding: 40px;
-    border: 2px solid rgb(109, 147, 152);
-    /* border-collapse: collapse; */
-}
-
-/* :nth-child(odd) is used to select all odd children elements of a type */
-/* :nth-child(even) is used to select all even children elements of a type */
-tr:nth-child(even){
-    background-color: rgb(148, 246, 211);
-}
-/* table, tr, td{
-     border: 1px solid rgb(109, 147, 152);
-} */
-
-
-/* The ::before pseudo-element is an inline box generated as an immediate child 
-of the element it is associated with, or the "originating element". 
-It is often used to add cosmetic content to an element via the content property, 
-such as icons, quote marks, or other decoration. 
-We use this command to create a child element as the parent element's first child */
-#projects-section>div:nth-child(odd)::before {
-    background-image: url('../html/ooo.jpg');
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.2;
-    /* It is necessary to put an empty content */
-    content: "";
-}
-
-#projects-section>div:nth-child(odd) {
-    position: relative;
+/* Responsivo */
+@media (min-width: 720px) {
+  .sobre-mi {
+    grid-template-columns: 1.4fr 1fr;
+  }
 }
