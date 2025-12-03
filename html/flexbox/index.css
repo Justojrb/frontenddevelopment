@@ -1,0 +1,32 @@
+*{
+
+font-family: monospace; 
+font-size: xx-large;
+
+}
+logo{
+max-width: 10vw; 
+min-width: 5vw;
+}
+/* > is direct child selector */
+/* "display" is a property used to organize a group of elements / / "flex" is a one dimensional display style, wich ditribute the elements inside the flex container along the main axis */
+/* choose the main axis direction along wich the flex items are positioned */
+nav>ul{
+
+
+border: 3px, solid, black;
+
+list-style: none;
+
+
+
+display: flex;
+
+
+flex-direction: row;
+
+justify-content: flex-end;
+}
+nav›ul>af{
+margin: 3vw;
+}
