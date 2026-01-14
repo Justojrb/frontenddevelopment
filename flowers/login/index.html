@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Links Boxicons icon library for user and lock icons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-    <div class="wrapper">
-      <form action=" ">
-        <h1>Login</h1>
-        <div class="input_box">
-            <input type = "text" placeholder ="username"
-            required>
-            <i class='bx bx-user-circle'></i>
-        </div>
-        <div class="input_box">
-            <input type = "password" 
-            placeholder ="password" required>
-            <i class='bx bx-lock' ></i>
-        </div>
-        
-        <div class="remember-forgot">
-          <label><input type="checkbox">Remember me</label>
-          <a href="#">Forgot password?</a>
-        </div>
-
-        <button type="submit" class="btn">Login</button>
-
-        <div class="register_link">
-            <p>Don't have an account? <a href="#">Register</a></p>
-        </div>
-
-          
-      </form>
+<!-- Main container wrapper for the login form -->
+<div class="wrapper">
+  <!-- Form element for user login -->
+  <form action=" ">
+    <!-- Login heading -->
+    <h1>Login</h1>
+    <!-- Container for username input field -->
+    <div class="input_box">
+      <!-- Text input field for username with placeholder text -->
+      <input type="text" placeholder="username" required>
+      <i class='bx bx-user-circle'></i>
+    </div>
+    <!-- Container for password input field -->
+    <div class="input_box">
+      <input type="password" placeholder="password" required>
+      <!-- Lock icon from Boxicons -->
+      <i class='bx bx-lock'></i>
     </div>
 
-    
+    <!-- Container for remember me checkbox and forgot password link -->
+    <div class="remember-forgot">
+      <!-- Checkbox label for remembering user credentials -->
+      <label><input type="checkbox">Remember me</label>
+      <a href="#">Forgot password?</a>
+    </div>
+
+    <!-- Submit button to login -->
+    <button type="submit" class="btn">Login</button>
+
+    <!-- Container for user registration link -->
+    <div class="register_link">
+      <!-- Text with link to registration page -->
+      <p>Don't have an account? <a href="#">Register</a></p>
+    </div>
+
+
+  </form>
+</div>

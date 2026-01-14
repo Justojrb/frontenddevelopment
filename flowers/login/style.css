@@ -1,5 +1,7 @@
+/* Import Poppins font family from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* Reset default styles for all elements */
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,7 @@
     font-family: "Poppins", sans-serif;
 }
 
+/* Center content and set background for entire page */
 body {
     display: flex;
     justify-content: center;
@@ -14,3 +17,4 @@ body {
     min-height: 100vh;
     background: seagreen;
 }
+
