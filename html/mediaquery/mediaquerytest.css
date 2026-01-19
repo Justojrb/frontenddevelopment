@@ -1,0 +1,25 @@
+*{
+    background-color: yellow;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/* We use @media to query parameters related with this device such as its screen width and height etc
+*/
+/*t*/
+@media screen and (min-width: 350px){
+    *{ background-color: rgb(11, 192, 50);
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;    
+}
+}
+
+@media screen and (min-width: 600px){
+    *{ background-color: rgb(42, 14, 141);
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;    
+}
+}
+
+@media screen and (min-width: 950px){
+    *{ background-color: aquamarine;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;    
+}
+}
+    
