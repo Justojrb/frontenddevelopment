@@ -2,36 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <!-- Título que aparece en la pestaña del navegador -->
-    <title>Login</title>
-
-    <!-- Enlace al archivo CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Tienda de Relojes</title>
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-
-    <!-- Div para crear el fondo con efecto difuminado -->
     <div class="background-blur"></div>
 
-    <!-- Tarjeta principal del login -->
     <div class="login-card">
+        <img src="../images/pngegg.png" alt="Logo">
 
-        <!-- Logo del login -->
-        <img src="../images/pngegg.png" alt="" width="200px" >
-
-
-        <!-- Formulario de inicio de sesión -->
-        <form>
-            <!-- Campo para introducir el usuario -->
+        <form onsubmit="location.href='index.html'; return false;">
             <input type="text" placeholder="Usuario" required>
-
-            <!-- Campo para introducir la contraseña -->
             <input type="password" placeholder="Contraseña" required>
-
-            <!-- Botón para enviar el formulario -->
             <button type="submit">ENTRAR</button>
         </form>
     </div>
-
 </body>
 </html>

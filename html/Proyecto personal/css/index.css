@@ -1,30 +1,246 @@
-*{
-    font-family: fantasy;
-    background-color:  #006039;
+/* ====== RESET Y ESTILOS BASE ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.Logo{
-    max-width: 10vw;
-    min-width: 3vw;
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
 }
-/*> is direct child selector*/
-nav>ul{
-    border: 2px solid black;
-    list-style: none;
-    /* "display" is a property used to organize a group of elements */
-    /*"flex" is a one dimesional display style,which
-    distribude the elements insidee the flex container along the main axis*/
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background: linear-gradient(135deg, rgba(0, 96, 57, 0.4), rgba(0, 77, 46, 0.4)), url('../images/FPM-GT-0598.jpg');
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+/* ====== HEADER Y NAVEGACIÓN ====== */
+.top-logo {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+}
+
+.top-logo img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+}
+
+header {
+    height: auto;
     display: flex;
-    /* choose he main axis direction along which the flex items are positioned*/
-    flex-direction: row;
-    /* Choose the way to distribute the flex items along the main axis*/
-    /* center/flex-start/flex-end/space-around/space-evenly/space-between*/
-    justify-content: space-around;
-    /* This prperty is used to align the group of flex items along the cross axis*/
+    justify-content: space-between;
     align-items: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
     flex-wrap: wrap;
+    gap: 1rem;
 }
-nav>ul>a{
-    margin:4vw;
-    width: 10vw;
+
+.Logo {
+    max-width: 6rem;
+    width: auto;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    transition: 0.3s;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ====== MAIN Y HERO SECTION ====== */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    min-height: auto;
+    width: 100%;
+}
+
+.hero {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.hero img {
+    max-width: 100%;
+    height: auto;
+    max-height: 12rem;
+}
+
+.hero h1 {
+    color: #006039;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.hero p {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ====== BOTONES ====== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #006039, #004d2e);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ====== MEDIA QUERIES - TABLET ====== */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
     
+    .top-logo {
+        top: 0.75rem;
+        left: 0.75rem;
+    }
+    
+    .top-logo img {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    header {
+        padding: 0.75rem;
+    }
+    
+    nav ul {
+        gap: 0.5rem;
+    }
+    
+    nav a {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.85rem;
+    }
+    
+    main {
+        padding: 1.5rem 1rem;
+    }
+    
+    .hero {
+        padding: 2rem 1.25rem;
+    }
+    
+    .hero img {
+        max-height: 10rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 0.95rem;
+    }
+}
+
+/* ====== MEDIA QUERIES - MOBILE ====== */
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .top-logo {
+        top: 0.5rem;
+        left: 0.5rem;
+    }
+    
+    .top-logo img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    header {
+        padding: 0.5rem;
+    }
+    
+    nav ul {
+        gap: 0.3rem;
+    }
+    
+    nav a {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.75rem;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .hero {
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+    }
+    
+    .hero img {
+        max-height: 8rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.3rem;
+    }
+    
+    .hero p {
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+    }
 }

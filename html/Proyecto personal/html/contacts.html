@@ -1,52 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/HTML/Proyecto personal/css/common.css">
-
-    <title>Contactos</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    <title>Contacto - Tienda de Relojes</title>
 </head>
-
 <body>
     <header>
         <div>
-            <img src="../images/pngegg.png" alt="" width="500px">
+            <img src="../images/pngegg.png" alt="Logo" class="Logo">
         </div>
-        <!--Here we disign the navigation bar-->
         <nav>
             <ul>
-                <a href="index.html">
-                    <li>Home</li>
-                </a>
-                <a href="">
-                    <li>Modelo</li>
-                </a>
-                <a href="">
-                    <li>Tienda</li>
-                </a>
-                <a href="contacts.html">
-                    <li>Contacto</li>
-                </a>
-                <a href="">
-                    <li>Sobre</li>
-                </a>
+                <a href="index.html"><li>Home</li></a>
+                <a href="tienda.html"><li>Tienda</li></a>
+                <a href="contacts.html"><li>Contacto</li></a>
+                <a href="sobreNosotros.html"><li>Sobre nosotros</li></a>
             </ul>
         </nav>
-        <!--I's is used to define a complete part of the page-->
-        <main>
-            <form action="">
-                <label for="email">email</label>
-                <input type="email" name="" id="email">
-                <label for="message">message</label>
-                <input type="text" id="message" placeholder="introduce your message">
-                <input type="submit" value="submit">
-            </form>
+    </header>
 
+    <main>
+        <form id="contactForm" onsubmit="sendEmail(event)">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Mensaje</label>
+            <input type="text" id="message" name="message" placeholder="Introduce tu mensaje" required>
+            <input type="submit" value="Enviar">
+        </form>
+    </main>
 
-        </main>
-
+    <script>
+        emailjs.init("g7lKpcf_pLqY2lNsI");
+        
+        function sendEmail(event) {
+            event.preventDefault();
+            
+            emailjs.send("service_5llloky", "template_onv5mqq", {
+                to_email: "valenciano3192006@gmail.com",
+                from_email: document.getElementById("email").value,
+                message: document.getElementById("message").value
+            }).then(function() {
+                alert("Correo enviado exitosamente!");
+                document.getElementById("contactForm").reset();
+            }, function(error) {
+                alert("Error al enviar el correo. Por favor, intenta de nuevo.");
+            });
+        }
+    </script>
 </body>
-
 </html>

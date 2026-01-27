@@ -1,0 +1,119 @@
+/* ====== RESET Y ESTILOS BASE ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, rgba(0, 96, 57, 0.4), rgba(0, 77, 46, 0.4)), url('../images/FPM-GT-0598.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+/* ====== NAVEGACIÓN ====== */
+nav {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+nav a {
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* ====== BACKGROUND BLUR ====== */
+.background-blur {
+    position: fixed;
+    width: 25rem;
+    height: 25rem;
+    background: #a37e2c;
+    filter: blur(150px);
+    opacity: 0.35;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ====== CONTENEDOR PRINCIPAL ====== */
+.container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    padding: 2.5rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto 2rem;
+    animation: fadeIn 1s ease;
+    z-index: 10;
+}
+
+h1 {
+    color: #006039;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+p {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+p:last-child {
+    margin-bottom: 0;
+    color: #a37e2c;
+    font-weight: 500;
+}
+
+/* ====== ANIMACIÓN ====== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(1.25rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
