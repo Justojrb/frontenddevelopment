@@ -1,39 +1,82 @@
+/* Este archivo tiene 2 filas y 1 columna */
 /* ====== RESET Y ESTILOS BASE ====== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Incluir padding y borde en el ancho y alto total del elemento */
 }
 
 html {
     font-size: 16px;
+    /* Tamaño de fuente base */
     scroll-behavior: smooth;
+    /* Desplazamiento suave */
+}
+
+
+body {
+    /* Elemento body */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Familia de fuentes */
+    background: linear-gradient(135deg, #006039, #004d2e);
+    /* Fondo degradado */
+    min-height: 100vh;
+    /* Altura mínima del viewport */
+    width: 100%;
+    overflow-x: hidden;
+    /* Ocultar desbordamiento horizontal */
+    display: grid;
+    /* Diseño de cuadrícula */
+    grid-template-columns: 1fr;
+    /* Una sola columna */
+    grid-template-rows: auto 1fr;
+    /* Encabezado automático, main flexible */
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #006039, #004d2e);
+    background: linear-gradient(135deg, rgba(0, 96, 57, 0.4), rgba(0, 77, 46, 0.4)), url('../images/istockphoto-698953994-612x612.jpg');
+    /* Fondo degradado e imagen */
+    background-attachment: fixed;
+    /* Adjunto fijo */
+    background-size: cover;
+    /* Tamaño cubrir */
+    background-position: center;
+    /* Posición centrada */
     min-height: 100vh;
+    /* Altura mínima del viewport */
     width: 100%;
     overflow-x: hidden;
+    /* Ocultar desbordamiento horizontal */
+    padding: 1rem;
     display: grid;
+    /* Diseño de cuadrícula */
     grid-template-columns: 1fr;
+    /* Una sola columna */
     grid-template-rows: auto 1fr;
+    /* Encabezado automático, main flexible */
 }
 
 /* ====== HEADER Y NAVEGACIÓN ====== */
 header {
     display: flex;
+    /* Diseño flexbox */
     align-items: center;
+    /* Centrar elementos verticalmente */
     justify-content: space-between;
+    /* Espacio entre elementos */
     padding: 0.75rem 1rem;
     background: rgba(0, 0, 0, 0.2);
+    /* Fondo semi-transparente */
     flex-wrap: wrap;
+    /* Envolver elementos */
     gap: 1rem;
     grid-column: 1;
+    /* Columna de cuadrícula */
 }
 
-header > div > img {
+header>div>img {
+    /* Imagen en div del header */
     margin: 0;
 }
 
@@ -43,151 +86,151 @@ header > div > img {
     height: auto;
 }
 
-nav > ul {
+nav>ul {
     border: none;
+    /* Sin borde */
     list-style: none;
+    /* Sin estilo de lista */
     display: flex;
+    /* Flexbox */
     flex-direction: row;
+    /* Dirección horizontal */
     justify-content: flex-end;
+    /* Alinear al final */
     align-items: center;
+    /* Centrar elementos */
     flex-wrap: wrap;
+    /* Envolver */
     gap: 0.5rem;
     width: 100%;
 }
 
-nav > ul > a {
+nav>ul>a {
     text-decoration: none;
+    /* Sin subrayado */
 }
 
-nav > ul > a > li {
+nav>ul>a>li {
+    /* Elementos de lista en enlaces de nav */
     color: white;
+    /* Texto blanco */
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
+    /* Esquinas redondeadas */
     cursor: pointer;
+    /* Cursor de puntero */
     font-weight: 500;
+    /* Peso de fuente */
     font-size: 0.9rem;
     transition: background 0.3s ease;
+    /* Transición */
     white-space: nowrap;
+    /* Sin envolver */
 }
 
-nav > ul > a > li:hover {
+nav>ul>a>li:hover {
+    /* Estado hover */
     background: rgba(255, 255, 255, 0.2);
+    /* Fondo semi-transparente al pasar el mouse */
 }
 
-/* ====== MAIN CONTENT ====== */
+/* ====== CONTENIDO PRINCIPAL ====== */
 main {
+    /* Elemento main */
     display: flex;
+    /* Flexbox */
     justify-content: center;
+    /* Centrar horizontalmente */
     align-items: center;
+    /* Centrar verticalmente */
     padding: 1.5rem;
     grid-column: 1;
+    /* Columna de cuadrícula */
     width: 100%;
     min-height: auto;
+    /* Altura mínima automática */
 }
 
 /* ====== FORMULARIOS ====== */
 form {
+    /* Elemento form */
     background: rgba(255, 255, 255, 0.95);
+    /* Fondo blanco semi-transparente */
     padding: 1.5rem;
     border-radius: 1rem;
+    /* Esquinas redondeadas */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* Sombra */
     display: flex;
+    /* Flexbox */
     flex-direction: column;
+    /* Dirección vertical */
     gap: 1rem;
     max-width: 25rem;
+    /* Ancho máximo */
     width: 100%;
 }
 
 label {
+    /* Elemento label */
     color: #333;
+    /* Color gris oscuro */
     font-weight: 600;
+    /* Peso de fuente */
     font-size: 0.95rem;
 }
 
 input[type="email"],
+/* Input de email */
 input[type="text"],
+/* Input de texto */
 input[type="password"] {
+    /* Input de contraseña */
     padding: 0.75rem 1rem;
     border: 2px solid #ddd;
+    /* Borde */
     border-radius: 0.5rem;
+    /* Esquinas redondeadas */
     font-size: 0.95rem;
     transition: border 0.3s ease;
+    /* Transición */
     width: 100%;
 }
 
 input[type="email"]:focus,
+/* Estado foco para email */
 input[type="text"]:focus,
+/* Estado foco para texto */
 input[type="password"]:focus {
+    /* Estado foco para contraseña */
     outline: none;
+    /* Sin contorno */
     border-color: #006039;
+    /* Borde verde */
 }
 
 input[type="submit"] {
+    /* Input de envío */
     padding: 0.75rem 1.5rem;
     background: #006039;
+    /* Fondo verde */
     color: white;
+    /* Texto blanco */
     border: none;
+    /* Sin borde */
     border-radius: 0.5rem;
+    /* Esquinas redondeadas */
     font-size: 0.95rem;
     font-weight: 600;
+    /* Peso de fuente */
     cursor: pointer;
+    /* Cursor de puntero */
     transition: background 0.3s ease;
+    /* Transición */
 }
 
 input[type="submit"]:hover {
+    /* Estado hover para envío */
     background: #004d2e;
-}
-
-/* ====== MEDIA QUERIES - TABLET ====== */
-@media (max-width: 768px) {
-    html {
-        font-size: 14px;
-    }
-    
-    header {
-        padding: 0.5rem 0.75rem;
-    }
-    
-    nav > ul {
-        gap: 0.25rem;
-        justify-content: center;
-    }
-    
-    nav > ul > a > li {
-        padding: 0.4rem 0.75rem;
-        font-size: 0.8rem;
-    }
-    
-    main {
-        padding: 1rem;
-    }
-    
-    form {
-        max-width: 100%;
-        padding: 1.25rem;
-    }
-}
-
-/* ====== MEDIA QUERIES - MOBILE ====== */
-@media (max-width: 480px) {
-    html {
-        font-size: 13px;
-    }
-    
-    header {
-        padding: 0.5rem;
-    }
-    
-    nav > ul {
-        gap: 0.2rem;
-    }
-    
-    nav > ul > a > li {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.75rem;
-    }
-    
-    form {
-        padding: 1rem;
-    }
+    /* Verde más oscuro */
 }

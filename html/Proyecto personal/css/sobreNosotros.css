@@ -1,39 +1,77 @@
+/* Este archivo tiene 1 fila y 1 columna */
 /* ====== RESET Y ESTILOS BASE ====== */
 * {
+    /* Selector universal para reset */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Incluir padding y borde en el ancho */
 }
 
 html {
     font-size: 16px;
+    /* Tamaño de fuente base */
     scroll-behavior: smooth;
+    /* Desplazamiento suave */
 }
+
+.top-logo {
+    position: fixed;
+    /* Posición fija */
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+    /* Z-index alto */
+}
+
+.top-logo img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+    /* Ajuste de objeto contener */
+}
+
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Familia de fuentes */
     background: linear-gradient(135deg, rgba(0, 96, 57, 0.4), rgba(0, 77, 46, 0.4)), url('../images/FPM-GT-0598.jpg');
+    /* Fondo degradado e imagen */
     background-attachment: fixed;
+    /* Adjunto fijo */
     background-size: cover;
+    /* Tamaño cubrir */
     background-position: center;
+    /* Posición centrada */
     min-height: 100vh;
+    /* Altura mínima del viewport */
     width: 100%;
     overflow-x: hidden;
+    /* Ocultar desbordamiento horizontal */
     padding: 1rem;
     display: grid;
+    /* Diseño de cuadrícula */
     grid-template-columns: 1fr;
+    /* Una sola columna */
     grid-template-rows: auto 1fr;
+    /* Encabezado automático, main flexible */
 }
 
 /* ====== NAVEGACIÓN ====== */
 nav {
     background: rgba(0, 0, 0, 0.3);
+    /* Fondo semi-transparente */
     padding: 1rem;
     text-align: center;
+    /* Texto centrado */
     border-radius: 0.5rem;
+    /* Esquinas redondeadas */
     display: flex;
+    /* Flexbox */
     flex-wrap: wrap;
+    /* Envolver */
     justify-content: center;
+    /* Justificar al centro */
     gap: 0.5rem;
     margin-bottom: 1.5rem;
 }
@@ -41,60 +79,86 @@ nav {
 nav a {
     margin: 0;
     text-decoration: none;
+    /* Sin subrayado */
     color: white;
+    /* Color blanco */
     font-weight: 500;
+    /* Peso de fuente */
     padding: 0.6rem 1.2rem;
     border-radius: 0.5rem;
+    /* Esquinas redondeadas */
     transition: background 0.3s, transform 0.2s;
+    /* Transición */
     font-size: 0.95rem;
     display: inline-block;
+    /* Bloque inline */
 }
 
 nav a:hover {
     background: rgba(255, 255, 255, 0.2);
+    /* Fondo semi-transparente */
     transform: translateY(-2px);
+    /* Trasladar arriba */
 }
 
 /* ====== BACKGROUND BLUR ====== */
 .background-blur {
     position: fixed;
+    /* Posición fija */
     width: 25rem;
     height: 25rem;
     background: #a37e2c;
+    /* Color de fondo */
     filter: blur(150px);
+    /* Filtro de desenfoque */
     opacity: 0.35;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /* Transformación centrada */
     pointer-events: none;
+    /* Sin eventos de puntero */
     z-index: 0;
+    /* Z-index */
 }
 
 /* ====== CONTENEDOR PRINCIPAL ====== */
 .container {
     position: relative;
+    /* Posición relativa */
     background: rgba(255, 255, 255, 0.95);
+    /* Fondo blanco semi-transparente */
     backdrop-filter: blur(10px);
+    /* Desenfoque de fondo */
     border-radius: 1rem;
+    /* Esquinas redondeadas */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    /* Sombra */
     padding: 2.5rem;
     max-width: 800px;
+    /* Ancho máximo */
     width: 100%;
     margin: 0 auto 2rem;
     animation: fadeIn 1s ease;
+    /* Animación de aparición gradual */
     z-index: 10;
+    /* Z-index */
 }
 
 h1 {
     color: #006039;
+    /* Color verde */
     margin-bottom: 1.5rem;
     font-size: 2rem;
     text-align: center;
+    /* Texto centrado */
 }
 
 p {
     color: #333;
+    /* Color gris oscuro */
     line-height: 1.8;
+    /* Altura de línea */
     margin-bottom: 1rem;
     font-size: 0.95rem;
 }
@@ -102,18 +166,24 @@ p {
 p:last-child {
     margin-bottom: 0;
     color: #a37e2c;
+    /* Color marrón */
     font-weight: 500;
+    /* Peso de fuente */
 }
 
 /* ====== ANIMACIÓN ====== */
 @keyframes fadeIn {
     from {
+        /* Estado desde */
         opacity: 0;
         transform: translateY(1.25rem);
+        /* Trasladar abajo */
     }
+
     to {
+        /* Estado hasta */
         opacity: 1;
         transform: translateY(0);
+        /* Trasladar a 0 */
     }
 }
-
