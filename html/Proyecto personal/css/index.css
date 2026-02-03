@@ -1,47 +1,33 @@
 /* Este archivo tiene 2 filas y 1 columna */
 /* ====== RESET Y ESTILOS BASE ====== */
 * {
-    /* Selector universal para reset */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Incluir padding y borde en el ancho */
 }
 
 html {
-    /* Elemento raíz */
     font-size: 16px;
-    /* Tamaño de fuente base */
     scroll-behavior: smooth;
-    /* Desplazamiento suave */
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Familia de fuentes */
     background: linear-gradient(135deg, #006039, #004d2e);
-    /* Fondo degradado */
     min-height: 100vh;
-    /* Altura mínima del viewport */
     width: 100%;
     overflow-x: hidden;
-    /* Ocultar desbordamiento horizontal */
     display: grid;
-    /* Diseño de cuadrícula */
     grid-template-columns: 1fr;
-    /* Una sola columna */
     grid-template-rows: auto 1fr;
-    /* Encabezado automático, main flexible */
 }
 
 /* ====== HEADER Y NAVEGACIÓN ====== */
 .top-logo {
     position: fixed;
-    /* Posición fija */
     top: 1rem;
     left: 1rem;
     z-index: 1000;
-    /* Z-index alto */
 }
 
 .top-logo img {

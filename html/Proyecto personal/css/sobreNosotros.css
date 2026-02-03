@@ -1,53 +1,39 @@
 /* Este archivo tiene 1 fila y 1 columna */
 /* ====== RESET Y ESTILOS BASE ====== */
 * {
-    /* Selector universal para reset */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Incluir padding y borde en el ancho */
 }
 
 html {
     font-size: 16px;
-    /* Tamaño de fuente base */
     scroll-behavior: smooth;
-    /* Desplazamiento suave */
 }
 
 .top-logo {
     position: fixed;
-    /* Posición fija */
     top: 1rem;
     left: 1rem;
     z-index: 1000;
-    /* Z-index alto */
 }
 
 .top-logo img {
     width: 4rem;
     height: 4rem;
     object-fit: contain;
-    /* Ajuste de objeto contener */
 }
 
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Familia de fuentes */
     background: linear-gradient(135deg, rgba(0, 96, 57, 0.4), rgba(0, 77, 46, 0.4)), url('../images/FPM-GT-0598.jpg');
-    /* Fondo degradado e imagen */
     background-attachment: fixed;
-    /* Adjunto fijo */
     background-size: cover;
-    /* Tamaño cubrir */
     background-position: center;
-    /* Posición centrada */
     min-height: 100vh;
-    /* Altura mínima del viewport */
     width: 100%;
     overflow-x: hidden;
-    /* Ocultar desbordamiento horizontal */
     padding: 1rem;
     display: grid;
     /* Diseño de cuadrícula */
