@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Relojes de Lujo</title>
+    <link rel="stylesheet" href="../css/tienda.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <script src="../js/themes.js"></script>
+</body>
+</head>
+<body>
+     <div class="top-logo">
+        <img src="../images/pngegg.png" alt="Logo">
+    </div>
+
+    <div id="timer" style="position: absolute; top: 36px; left: 100px; font-size: medium; color: white;">00:00:00</div>
+
+    <div class="theme-buttons" style="position: fixed; top: 36px; right: 30px; display: flex; gap: 5px; z-index: 1001;">
+        <button id="light-mode">Light</button>
+        <button id="dark-mode">Dark</button>
+        <button id="neon-mode">Neon</button>
+        <button id="brown-mode">Brown</button>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="contacts.html">Contacto</a>
+        <a href="sobreNosotros.html">Sobre nosotros</a>
+    </nav>
+
+    <main>
+        <h1>Tienda de Relojes</h1>
+        <div class="products">
+            <div class="product">
+                <img src="../images/pngkey.com-rolex-png-95023.png" alt="Submariner">
+                <h3>Rolex Submariner</h3>
+                <p>$9,100</p>
+            </div>
+            <div class="product">
+                <img src="../images/pngkey.com-rolex-png-329986.png" alt="Datejust">
+                <h3>Rolex Datejust</h3>
+                <p>$7,250</p>
+            </div>
+            <div class="product">
+                <img src="../images/pngkey.com-rolex-watch-png-2812157.png" alt="Day-Date">
+                <h3>Rolex Day-Date</h3>
+                <p>$36,950</p>
+            </div>
+            <div class="product">
+                <img src="../images/pngkey.com-rolex-png-281743.png" alt="Daytona">
+                <h3>Rolex Daytona</h3>
+                <p>$14,650</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let hours = 0;
+        let minutes = 0;
+        let seconds = 0;
+        setInterval(() => {
+            seconds++;
+            if (seconds === 60) {
+                seconds = 0;
+                minutes++;
+            }
+            if (minutes === 60) {
+                minutes = 0;
+                hours++;
+            }
+            document.getElementById('timer').textContent = 
+                `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+        }, 1000);
+    </script>
+
+    <script>
+        const buttons = document.querySelectorAll('.theme-buttons button');
+        const lightBtn = document.getElementById('light-mode');
+        const darkBtn = document.getElementById('dark-mode');
+        const neonBtn = document.getElementById('neon-mode');
+        const brownBtn = document.getElementById('brown-mode');
+
+        function setTheme(bg, text, accent, nav, product, border) {
+            document.documentElement.style.setProperty('--bg-color', bg);
+            document.documentElement.style.setProperty('--text-color', text);
+            document.documentElement.style.setProperty('--accent-color', accent);
+            document.documentElement.style.setProperty('--nav-bg', nav);
+            document.documentElement.style.setProperty('--product-bg', product);
+            document.documentElement.style.setProperty('--border-color', border);
+        }
+
+        function setActive(button) {
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+
+        lightBtn.addEventListener('click', () => {
+            setTheme('#ffffff', '#000000', '#007bff', '#f8f9fa', '#ffffff', '#ddd');
+            setActive(lightBtn);
+        });
+
+        darkBtn.addEventListener('click', () => {
+            setTheme('#121212', '#ffffff', '#bb86fc', '#1e1e1e', '#2d2d2d', '#444');
+            setActive(darkBtn);
+        });
+
+        neonBtn.addEventListener('click', () => {
+            setTheme('#000000', '#00ff00', '#00ffff', '#001100', '#002200', '#00ff00');
+            setActive(neonBtn);
+        });
+
+        brownBtn.addEventListener('click', () => {
+            setTheme('#8b4513', '#f5deb3', '#d2691e', '#654321', '#a0522d', '#daa520');
+            setActive(brownBtn);
+        });
+
+        // Set default green
+        setTheme('#006039', '#ffffff', '#00ff00', '#004d2e', '#ffffff', '#ddd');
+        setActive(lightBtn);
+    </script>
+</body>
+</html>
