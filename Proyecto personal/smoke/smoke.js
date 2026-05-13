@@ -1,80 +1,77 @@
-const min_particle_size = 0.2;
-const min_speed_x = 1;
-const min_speed_y = 1;
-const NUM_OF_PARTICLES = 10;
+const NUM_OF_PARTICLES = 7;
 const canvas = document.getElementById("smoke_canvas");
-console.log(canvas);
-const ctx = canvas.getContext("2d");
-//define the color that we want to use for our drawings
-ctx.fillStyle = "rgb(36, 104, 104)";
-//prepare to draw a path
-ctx.beginPath();
-//draw an arc
-ctx.arc(2, 3, 2, 0, Math.PI * 2);
-//fill the object that have drawn
-ctx.fill();
+const ctx = canvas && canvas.getContext("2d");
+
+function resizeCanvas() {
+  if (!canvas) return;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
 
 class Smoke {
   constructor() {
     this.particles = [];
   }
 
-  add(particles) {
-    this.particles.push(particles);
+  add(particle) {
+    this.particles.push(particle);
   }
 
-  animate(){
-    for (let index = 0; index < this.particles.length; index++) {
-      //update the states of the particles and draw it to the screen
-      this.particles[index].update(); 
-    }
-    requestAnimationFrame(animate);
+  animate() {
+    if (!ctx || !canvas) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    this.particles = this.particles.filter((particle) => particle.update());
+    requestAnimationFrame(this.animate.bind(this));
   }
 }
 
-class Particles {
+class Particle {
   constructor(x, y) {
-    this.size = Math.random() * 2 + min_particle_size;
-    this.color = "#23a";
-    this.speedX = Math.random() * 2 + min_speed_x;
-    this.speedY = Math.random() * 2 + min_speed_y;
-    this.X = Math.random() * 2 + x;
-    this.Y = Math.random() * 2 + y;
+    this.x = x + (Math.random() - 0.5) * 30;
+    this.y = y + (Math.random() - 0.5) * 30;
+    this.size = Math.random() * 10 + 8;
+    this.speedX = (Math.random() - 0.5) * 1.5;
+    this.speedY = -Math.random() * 1.5 - 0.5;
+    this.alpha = 0.6;
   }
-  //update the current state of a particle
-  update() {
-    this.size -= 1;
-    //this.size =this.size - 1;
 
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.size *= 0.97;
+    this.alpha *= 0.98;
     this.draw();
+    return this.size > 0.7 && this.alpha > 0.02;
   }
 
   draw() {
-    //define the color that we want to use for our drawings
-    ctx.fillStyle = this.color;
-    //prepare to draw a path
     ctx.beginPath();
-    //draw an arc
-    ctx.arc(this.X,this.Y,this.size, 0, Math.PI * 2);
-    //fill the object that have drawn
+    ctx.fillStyle = `rgba(255,255,255,${this.alpha})`;
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
   }
 }
+
 const smoke = new Smoke();
 
-window.addEventListener("mousemove", (e) => {
-  console.log(e);
-  console.log(e.clientX);
-  console.log(e.clientY);
+window.addEventListener("load", () => {
+  if (!canvas) return;
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
 
-  //create particles and add them to the smoke object
-  for (let index = 0; index < NUM_OF_PARTICLES; index++) {
-    const particles = new Particles(e.clientX, e.clientY);
-    smoke.add(particles);
-    console.log(smoke.particles);
+  canvas.style.position = "fixed";
+  canvas.style.top = "0";
+  canvas.style.left = "0";
+  canvas.style.pointerEvents = "none";
+  canvas.style.zIndex = "999";
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
 
-  }
+  window.addEventListener("mousemove", (e) => {
+    for (let i = 0; i < NUM_OF_PARTICLES; i++) {
+      smoke.add(new Particle(e.clientX, e.clientY));
+    }
+  });
 
+  smoke.animate();
 });
-
-smoke.animate();
